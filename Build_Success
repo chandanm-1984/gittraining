@@ -1,0 +1,55 @@
+[2:20 PM] Amit (Guest)
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('1') {
+
+            steps {
+
+                sh 'exit 0'
+
+            }
+
+        }
+
+        stage('2') {
+
+            steps {
+
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+
+                    sh "exit 1"
+
+                }
+
+            }
+
+        }
+
+        stage('3') {
+
+            steps {
+
+                sh 'exit 0'
+
+            }
+
+        }
+
+    } // Make sure to close the stages block properly
+
+}
+
+[2:24 PM] Mohakul, Chandankumar
+Mohakul, Chandankumar
+📷 facing issue on system
+
+I got system connection but it seems duration remaining 1hr 55mins ..
+
+[2:25 PM] Amit (Guest)
+just a min
+[2:26 PM] Shireen, Sofia
+my lab session is going to get over in 20 mins
